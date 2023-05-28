@@ -1,9 +1,9 @@
 #!/bin/bash
 
 yum -y install nfs-utils
-mkdir /mnt/upload
-chmod -R 0777 /mnt/upload
-echo "/mnt/upload 192.168.50.0/24(rw,sync,no_root_squash,no_all_squash)" > /etc/exports
+mkdir /srv/upload
+chmod -R 0777 /srv/upload
+echo "/srv/upload 192.168.50.0/24(rw,sync,no_root_squash,no_all_squash)" > /etc/exports
 exportfs -r
 systemctl start firewalld
 firewall-cmd --permanent --add-service=rpc-bind
